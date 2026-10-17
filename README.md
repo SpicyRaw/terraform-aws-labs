@@ -5,7 +5,7 @@ Laboratori pratici di IaC con Terraform su AWS,realizzati durante la preparazion
 ## Laboratori
 
 Cartella 01-ec2-base
-
+Cartella 02-securitygroup-base
 
 ## Requisiti
 
@@ -23,5 +23,4 @@ Cartella 01-ec2-base
 
 ## Sicurezza
 
-Credenziali, file di state e file .tfvars sono esclusi tramite
-.gitignore.
+Credenziali/IP, file di state e file .tfvars sono esclusi tramite .gitignore.
