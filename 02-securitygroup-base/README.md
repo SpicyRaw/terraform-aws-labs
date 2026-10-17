@@ -4,10 +4,7 @@ Creazione di un Security Group AWS gestito interamente con Terraform, con regole
 
 ## Cosa crea
 
-| Regola | Direzione | Porta | Sorgente / Destinazione |
-| HTTP   | Ingress | 80/tcp | `0.0.0.0/0` |
-| SSH    | Ingress | 22/tcp | solo il tuo IP (`var.my_ip`) |
-| Tutto il traffico | Egress | tutte | `0.0.0.0/0` |
+HTTP SSH 
 
 Regione: `us-east-1`. Il security group viene creato nel VPC di default dell'account.
 
