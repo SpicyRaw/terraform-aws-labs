@@ -16,6 +16,7 @@ Cartella 02-securitygroup-base
 ## Come usarli
 
     cd 01-ec2-base
+    cd 02-securitygroup-base
     terraform init
     terraform plan
     terraform apply
