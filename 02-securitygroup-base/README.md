@@ -1,10 +1,15 @@
 # Lab 02 – Security Group base con Terraform
 
-Creazione di un Security Group AWS gestito interamente con Terraform, con regole separate per HTTP, SSH e traffico in uscita.
+Creazione di un Security Group AWS gestito interamente con Terraform, con regole separate per HTTP/HTTPS/ELASTIC IP, SSH e traffico in uscita.
 
 ## Cosa crea
 
-HTTP SSH 
+- 1 Elastic IP (`aws_eip.lb`)
+- 1 security group (`allow_tls`)
+- Ingress: HTTP 80 da `0.0.0.0/0`
+- Ingress: SSH 22 solo dal mio IP (`var.my_ip`)
+- Ingress: HTTPS 443 dal solo IP dell'Elastic IP (`${aws_eip.lb.public_ip}/32`)
+- Egress: tutto il traffico verso `0.0.0.0/0
 
 Regione: `us-east-1`. Il security group viene creato nel VPC di default dell'account.
 
@@ -22,8 +27,15 @@ Regione: `us-east-1`. Il security group viene creato nel VPC di default dell'acc
 - **L'IP di casa è di solito dinamico.** Se cambia, SSH smette di funzionare: aggiorna `terraform.tfvars` e rilancia `terraform apply`.
 
 ## Cosa ho imparato
-
+- Riferire un attributo di un'altra risorsa crea una dipendenza implicita: Terraform crea prima l'EIP e poi la regola.
+- `public_ip` è "known after apply": il valore esiste solo dopo la creazione.
 - Ogni cartella con file .tf è un progetto indipendente con il proprio terraform init, la propria cartella .terraform e il proprio state.
 - Una regola duplicata (stesso CIDR e protocollo) viene rifiutata da AWS con `InvalidPermission.Duplicate`.
 - Le variabili si richiamano senza virgolette (`var.my_ip`); tra virgolette Terraform le tratta come testo.
 - Il file `.terraform.lock.hc` fissa le versioni dei provider e si committa; la cartella `.terraform` no.
+
+## Scelte consapevoli (e limiti)
+- La regola 443 verso l'IP dell'EIP è un esperimento didattico, non una configurazione reale: l'EIP non è associato ad alcuna istanza. Nel 01-ec2-base l'EIP viene associato all'istanza
+- Egress `-1` (tutti i protocolli) verso `0.0.0.0/0`: scelta temporanea
+  per semplicità. In produzione si restringe al necessario.
+- Nessun tag per ora: da aggiungere nei prossimi lab.
