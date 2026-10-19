@@ -12,25 +12,7 @@ Regione: `us-east-1`. Il security group viene creato nel VPC di default dell'acc
 
 - Terraform installato
 - Account AWS con credenziali configurate (`aws configure`)
-
-## Utilizzo
-
-```powershell
-# 1. Copia il file di esempio e inserisci il tuo IP pubblico (formato x.x.x.x/32)
-copy terraform.tfvars
-
-# 2. Scarica il provider AWS
-terraform init
-
-# 3. Controlla cosa verrà creato
-terraform plan
-
-# 4. Crea le risorse
-terraform apply
-
-# 5. A fine lab, elimina tutto
-terraform destroy
-
+- 
 ## Note di sicurezza
 
 - **SSH limitato a un solo IP.** La porta 22 non è esposta a `0.0.0.0/0`: l'IP viene passato tramite la variabile `my_ip`, senza valore di default.
