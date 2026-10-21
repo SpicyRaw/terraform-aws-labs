@@ -5,15 +5,15 @@ variable "my_ip" {
 
 variable "http" {
   description = "Porta HHTP"
-  type        = string
+  type        = number
 }
 
 variable "https" {
   description = "Porta HTTPS"
-  type        = string
+  type        = number
 }
 
 variable "ssh" {
   description = "Porta SSH"
-  type        = string
+  type        = number
 }
