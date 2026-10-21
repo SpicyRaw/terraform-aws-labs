@@ -3,6 +3,6 @@ provider "aws" {
 }
 
 resource "aws_instance" "firstec2" {
-  ami = "ami-004d1eaf8eaa0107d"
+  ami           = "ami-004d1eaf8eaa0107d"
   instance_type = "t3.micro"
 }

@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 resource "aws_eip" "lb" {
-  domain   = "vpc"
+  domain = "vpc"
 }
 
 resource "aws_security_group" "allow_tls" {
   name        = "firewall-terraform"
   description = "Managed from terraform"
- 
+
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_tls_ipv4" {
