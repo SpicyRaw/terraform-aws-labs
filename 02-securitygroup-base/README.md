@@ -10,6 +10,8 @@ Creazione di un Security Group AWS gestito interamente con Terraform, con regole
 - Ingress: SSH 22 solo dal mio IP (`var.my_ip`)
 - Ingress: HTTPS 443 dal solo IP dell'Elastic IP (`${aws_eip.lb.public_ip}/32`)
 - Egress: tutto il traffico verso `0.0.0.0/0
+- Security group "Dynamic block" che genera le regole di ingress da una lista di porte, invece di scrivere un blocco `ingress` per ogni porta.
+
 
 Regione: `us-east-1`. Il security group viene creato nel VPC di default dell'account.
 
@@ -33,6 +35,7 @@ Regione: `us-east-1`. Il security group viene creato nel VPC di default dell'acc
 - Una regola duplicata (stesso CIDR e protocollo) viene rifiutata da AWS con `InvalidPermission.Duplicate`.
 - Le variabili si richiamano senza virgolette (`var.my_ip`); tra virgolette Terraform le tratta come testo.
 - Il file `.terraform.lock.hc` fissa le versioni dei provider e si committa; la cartella `.terraform` no.
+- Risultato: 8 regole in ingresso create da un solo blocco (verificato in console, us-east-1).
 
 ## Scelte consapevoli (e limiti)
 - La regola 443 verso l'IP dell'EIP è un esperimento didattico, non una configurazione reale: l'EIP non è associato ad alcuna istanza. Nel 01-ec2-base l'EIP viene associato all'istanza
