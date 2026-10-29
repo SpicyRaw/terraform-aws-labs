@@ -23,6 +23,6 @@ variable "ssh" {
 
 #Variabile per molteplice porte con un solo blocco di ingress rules dynamic block
 variable "sg-demo-dynamics" {
-  type = list(number)
-  default = [ 80,443,22,8200,8300,9000,9300,9500]
+  type    = list(number)
+  default = [80, 443, 22, 8200, 8300, 9000, 9300, 9500]
 }
