@@ -17,6 +17,7 @@ Cartella 02-securitygroup-base
 
     cd 01-ec2-base
     cd 02-securitygroup-base
+    cd 03-s3-ec2-iamrole    
     terraform init
     terraform plan
     terraform apply
