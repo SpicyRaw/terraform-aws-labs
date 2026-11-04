@@ -30,4 +30,4 @@ echo "ciao" > /srv/upload/test.txt
 
 Dopo circa un minuto il file è nel bucket. Per eliminare tutto: `terraform destroy`.
 
-## Niente versioning e niente crittografia configurata esplicitamente (AWS cifra comunque di default con SSE-S3). Da aggiungere in un secondo momento.
+## Niente versioning e niente crittografia configurata esplicitamente (AWS cifra comunque di default con SSE-S3).
