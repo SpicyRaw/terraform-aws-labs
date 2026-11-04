@@ -6,6 +6,8 @@ Laboratori pratici di IaC con Terraform su AWS,realizzati durante la preparazion
 
 Cartella 01-ec2-base
 Cartella 02-securitygroup-base
+Cartella 03-s3-ec2-iamrole   
+Cartella 04-modules
 
 ## Requisiti
 
