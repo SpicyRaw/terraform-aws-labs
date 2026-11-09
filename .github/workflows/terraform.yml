@@ -19,3 +19,7 @@ jobs:
       - run: terraform fmt -check
       - run: terraform init -backend=false
       - run: terraform validate
+      - name: tfsec
+      - uses: acquasecurity/tfsec-action@v1.0.3
+      - with: working-directory: ${{ matrix.lab }}
+      - soft_fail: true
