@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        lab: [01-ec2-base, 02-securitygroup-base, 03-s3-ec2-iamrole, 04-modules]
+        lab: [01-ec2-base, 02-securitygroup-base, 03-s3-ec2-iamrole, 04-modules, 05-db-password-ephemeral]
     defaults:
       run:
         working-directory: ${{ matrix.lab }}
