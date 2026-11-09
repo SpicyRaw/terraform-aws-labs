@@ -21,6 +21,7 @@ Cartella 04-modules
     cd 02-securitygroup-base
     cd 03-s3-ec2-iamrole 
     cd 04-modules
+    cd 05-db-password-ephemeral
     terraform init
     terraform plan
     terraform apply
