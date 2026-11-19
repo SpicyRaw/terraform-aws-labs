@@ -8,7 +8,8 @@ Cartella 01-ec2-base
 Cartella 02-securitygroup-base
 Cartella 03-s3-ec2-iamrole   
 Cartella 04-modules
-
+Cartella 05-db-password-ephemeral
+Cartella 06-docker-nginx
 ## Requisiti
 
 - Terraform installato
