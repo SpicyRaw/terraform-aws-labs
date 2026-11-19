@@ -22,6 +22,7 @@ Cartella 04-modules
     cd 03-s3-ec2-iamrole 
     cd 04-modules
     cd 05-db-password-ephemeral
+    cd 06-docker-nginx
     terraform init
     terraform plan
     terraform apply
